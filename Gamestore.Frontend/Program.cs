@@ -2,11 +2,10 @@ using Gamestore.Frontend.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container
+// Add services to the container.
 builder.Services.AddRazorComponents();
 
 var app = builder.Build();
-
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
