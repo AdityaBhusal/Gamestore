@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "OUHZWXkiwJjlyHZqT3EW3nqex+wxMjPDeCgKVtCdZAM=",
+  "Hash": "A0ZFpYcEWae2/IhT0CqJchckChE+4sDYVMa9m3QSmPo=",
   "Source": "Gamestore.Frontend",
   "BasePath": "_content/Gamestore.Frontend",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "Gamestore.Frontend\\wwwroot",
       "Source": "Gamestore.Frontend",
-      "ContentRoot": "C:\\Users\\Asus\\OneDrive\\Desktop\\JulioCasalYT\\gamestore\\gamestore.frontend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Asus\\OneDrive\\Desktop\\JulioCasalYT\\GameStore\\Gamestore.Frontend\\wwwroot\\",
       "BasePath": "_content/Gamestore.Frontend",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\Asus\\OneDrive\\Desktop\\JulioCasalYT\\gamestore\\gamestore.frontend\\obj\\Debug\\net8.0\\scopedcss\\bundle\\Gamestore.Frontend.styles.css",
+      "Identity": "C:\\Users\\Asus\\OneDrive\\Desktop\\JulioCasalYT\\GameStore\\Gamestore.Frontend\\obj\\Debug\\net8.0\\scopedcss\\bundle\\Gamestore.Frontend.styles.css",
       "SourceId": "Gamestore.Frontend",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Asus\\OneDrive\\Desktop\\JulioCasalYT\\gamestore\\gamestore.frontend\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\Asus\\OneDrive\\Desktop\\JulioCasalYT\\GameStore\\Gamestore.Frontend\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/Gamestore.Frontend",
       "RelativePath": "Gamestore.Frontend.styles.css",
       "AssetKind": "All",
@@ -33,13 +33,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Asus\\OneDrive\\Desktop\\JulioCasalYT\\gamestore\\gamestore.frontend\\obj\\Debug\\net8.0\\scopedcss\\bundle\\Gamestore.Frontend.styles.css"
+      "OriginalItemSpec": "C:\\Users\\Asus\\OneDrive\\Desktop\\JulioCasalYT\\GameStore\\Gamestore.Frontend\\obj\\Debug\\net8.0\\scopedcss\\bundle\\Gamestore.Frontend.styles.css"
     },
     {
-      "Identity": "C:\\Users\\Asus\\OneDrive\\Desktop\\JulioCasalYT\\gamestore\\gamestore.frontend\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Gamestore.Frontend.bundle.scp.css",
+      "Identity": "C:\\Users\\Asus\\OneDrive\\Desktop\\JulioCasalYT\\GameStore\\Gamestore.Frontend\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Gamestore.Frontend.bundle.scp.css",
       "SourceId": "Gamestore.Frontend",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Asus\\OneDrive\\Desktop\\JulioCasalYT\\gamestore\\gamestore.frontend\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\Asus\\OneDrive\\Desktop\\JulioCasalYT\\GameStore\\Gamestore.Frontend\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/Gamestore.Frontend",
       "RelativePath": "Gamestore.Frontend.bundle.scp.css",
       "AssetKind": "All",
@@ -52,13 +52,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Asus\\OneDrive\\Desktop\\JulioCasalYT\\gamestore\\gamestore.frontend\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Gamestore.Frontend.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\Asus\\OneDrive\\Desktop\\JulioCasalYT\\GameStore\\Gamestore.Frontend\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Gamestore.Frontend.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\Asus\\OneDrive\\Desktop\\JulioCasalYT\\gamestore\\gamestore.frontend\\wwwroot\\app.css",
+      "Identity": "C:\\Users\\Asus\\OneDrive\\Desktop\\JulioCasalYT\\GameStore\\Gamestore.Frontend\\wwwroot\\app.css",
       "SourceId": "Gamestore.Frontend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Asus\\OneDrive\\Desktop\\JulioCasalYT\\gamestore\\gamestore.frontend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Asus\\OneDrive\\Desktop\\JulioCasalYT\\GameStore\\Gamestore.Frontend\\wwwroot\\",
       "BasePath": "_content/Gamestore.Frontend",
       "RelativePath": "app.css",
       "AssetKind": "All",

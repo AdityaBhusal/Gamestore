@@ -26,3 +26,4 @@ C:\Users\Asus\OneDrive\Desktop\JulioCasalYT\GameStore\Gamestore.Frontend\obj\Deb
 C:\Users\Asus\OneDrive\Desktop\JulioCasalYT\GameStore\Gamestore.Frontend\obj\Debug\net8.0\Gamestore.Frontend.pdb
 C:\Users\Asus\OneDrive\Desktop\JulioCasalYT\GameStore\Gamestore.Frontend\obj\Debug\net8.0\Gamestore.Frontend.genruntimeconfig.cache
 C:\Users\Asus\OneDrive\Desktop\JulioCasalYT\GameStore\Gamestore.Frontend\obj\Debug\net8.0\ref\Gamestore.Frontend.dll
+C:\Users\Asus\OneDrive\Desktop\JulioCasalYT\GameStore\Gamestore.Frontend\obj\Debug\net8.0\Gamestore.Frontend.sourcelink.json
