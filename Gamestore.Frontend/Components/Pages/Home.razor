@@ -1,6 +1,6 @@
 ﻿@page "/"
-<!-- we can also import @using Models  -->
-@using Gamestore.Frontend.Models
+<!-- we can also import @using Models or @using Gamestore.Frontend.Models -->
+@using Models
 <PageTitle>Game Catalog</PageTitle>
 
 
@@ -31,6 +31,7 @@
 
 @code {
     private GameSummary[] games=[
+    //cyberpunk 2077
     new(){
         Id=1,
         Name="Cyberpunk 2077",
@@ -38,6 +39,7 @@
         ReleaseDate=new DateTime(2020,12,10),
         Price=59.99m
     },
+    //the witcher 3
     new(){
         Id=2,
         Name="The Witcher 3",
@@ -45,6 +47,7 @@
         ReleaseDate=new DateTime(2015,5,19),
         Price=29.99m
     },
+    //doom eternal
     new(){
         Id=3,
         Name="Doom Eternal",
