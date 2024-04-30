@@ -4,14 +4,14 @@
 <PageTitle>Game Catalog</PageTitle>
 
 
-<table>
-    <thead>
+<table class="table table-striped table-hover table-bordered">
+    <thead class="table-dark">
         <tr>
             <th>Id</th>
             <th>Game Name</th>
             <th>Genre</th>
             <th>Release Date</th>
-            <th>Price</th>
+            <th class="text-end">Price</th>
             <th></th>
         </tr>
     </thead>
@@ -19,14 +19,16 @@
         
         @foreach (var game in games)
         {
-            <tr>
+            <tr> 
                 <td>@game.Id</td>
                 <td>@game.Name</td>
                 <td>@game.Genre</td>
                 <td>@game.ReleaseDate.ToShortDateString()</td>
-                <td>@game.Price</td>
-                
-    
+                <td class="text-end">@game.Price.ToString("C2")</td>
+               <td> </td>
+            </tr>
+        }
+    </tbody>
 </table>
 
 @code {
@@ -36,7 +38,7 @@
         Id=1,
         Name="Cyberpunk 2077",
         Genre="RPG",
-        ReleaseDate=new DateTime(2020,12,10),
+        ReleaseDate=new DateOnly(2020,12,10),
         Price=59.99m
     },
     //the witcher 3
@@ -44,7 +46,7 @@
         Id=2,
         Name="The Witcher 3",
         Genre="RPG",
-        ReleaseDate=new DateTime(2015,5,19),
+        ReleaseDate=new DateOnly(2015,5,19),
         Price=29.99m
     },
     //doom eternal
@@ -52,7 +54,7 @@
         Id=3,
         Name="Doom Eternal",
         Genre="FPS",
-        ReleaseDate=new DateTime(2020,3,20),
+        ReleaseDate=new DateOnly(2020,3,20),
         Price=39.99m
     },
     //gta san andreas
@@ -60,7 +62,7 @@
         Id=4,
         Name="GTA San Andreas",
         Genre="Action",
-        ReleaseDate=new DateTime(2004,6,7),
+        ReleaseDate=new DateOnly(2004,6,7),
         Price=9.99m
     },
     //tomb raider aniversary
@@ -68,7 +70,7 @@
         Id=5,
         Name="Tomb Raider Anniversary",
         Genre="Action",
-        ReleaseDate=new DateTime(2007,6,1),
+        ReleaseDate= new DateOnly(2007,6,1),
         Price=19.99m 
 
 
@@ -79,7 +81,8 @@
         //if we put f it will be considered as float
         //if we put l it will be considered as long
         //if we put d it will be considered as double
-        //if we put ul it will be considered as ulong
+        //if we put ul it will be considered as ulong\
+        // ulong means unsigned long for ex.- 
         //if we put u it will be considered as uint
         //if we put s it will be considered as short
         //if we put us it will be considered as ushort
