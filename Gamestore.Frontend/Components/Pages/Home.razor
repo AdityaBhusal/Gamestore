@@ -1,10 +1,15 @@
 ﻿@page "/"
 <!-- we can also import @using Models or @using Gamestore.Frontend.Models -->
 @using Models
+@using Clients
 <PageTitle>Game Catalog</PageTitle>
 
 
-<table class="table table-striped table-hover table-bordered mt-3">
+@if(games is null)
+    <p>Loading...</p>
+}
+else{
+    <table class="table table-striped table-hover table-bordered mt-3">
     <thead class="table-dark">
         <tr>
             <th>Id</th>
@@ -30,66 +35,15 @@
         }
     </tbody>
 </table>
+}
 
 @code {
-    private GameSummary[] games=[
-    //cyberpunk 2077
-    new(){
-        Id=1,
-        Name="Cyberpunk 2077",
-        Genre="RPG",
-        ReleaseDate=new DateOnly(2020,12,10),
-        Price=59.99m
-    },
-    //the witcher 3
-    new(){
-        Id=2,
-        Name="The Witcher 3",
-        Genre="RPG",
-        ReleaseDate=new DateOnly(2015,5,19),
-        Price=29.99m
-    },
-    //doom eternal
-    new(){
-        Id=3,
-        Name="Doom Eternal",
-        Genre="FPS",
-        ReleaseDate=new DateOnly(2020,3,20),
-        Price=39.99m
-    },
-    //gta san andreas
-    new(){
-        Id=4,
-        Name="GTA San Andreas",
-        Genre="Action",
-        ReleaseDate=new DateOnly(2004,6,7),
-        Price=9.99m
-    },
-    //tomb raider aniversary
-    new(){
-        Id=5,
-        Name="Tomb Raider Anniversary",
-        Genre="Action",
-        ReleaseDate= new DateOnly(2007,6,1),
-        Price=19.99m 
-
-
-        
+    private GamesClient client = new();
+    private GameSummary[]? games;
+    
+    protected void onInitialized()
+    {
+        games = client.GetGames();
     }
-        //this m after the price is to specify that it is a decimal value
-        //if we dont put m it will be considered as double
-        //if we put f it will be considered as float
-        //if we put l it will be considered as long
-        //if we put d it will be considered as double
-        //if we put ul it will be considered as ulong\
-        // ulong means unsigned long for ex.- 
-        //if we put u it will be considered as uint
-        //if we put s it will be considered as short
-        //if we put us it will be considered as ushort
-        //if we put b it will be considered as byte
-        //if we put sb it will be considered as sbyte
-        //if we put c it will be considered as char
-        //if we put i it will be considered as int
-    ];
 }
 
