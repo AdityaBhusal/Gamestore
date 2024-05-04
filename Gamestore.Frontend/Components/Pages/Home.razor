@@ -5,11 +5,13 @@
 <PageTitle>Game Catalog</PageTitle>
 
 
-@if(games is null)
+@if(games is null){
     <p>Loading...</p>
 }
-else{
-    <table class="table table-striped table-hover table-bordered mt-3">
+
+else
+{
+ <table class="table table-striped table-hover table-bordered mt-3">
     <thead class="table-dark">
         <tr>
             <th>Id</th>
@@ -40,10 +42,23 @@ else{
 @code {
     private GamesClient client = new();
     private GameSummary[]? games;
-    
-    protected void onInitialized()
-    {
-        games = client.GetGames();
-    }
+
+   protected override void OnInitialized()
+   {
+        games=client.GetGames();
+    /*
+    OnInitialized is a lifecycle method in Blazor.
+    It's called when a component is being initialized.
+    It's used for initialization tasks like data retrieval or setting initial property values.
+    In your code, OnInitialized is overridden in the Home component.
+    Inside this method, games property is assigned the value returned by client.GetGames().
+    GetGames likely retrieves a collection of games.
+    games property stores this collection.
+    Calling client.GetGames() inside OnInitialized populates games with necessary data.
+    This ensures games is initialized with appropriate data before rendering.
+    OnInitialized is one of several lifecycle methods in Blazor, each serving a specific purpose.
+    */
+   }
+ 
 }
 

@@ -48,6 +48,6 @@ public class GamesClient
      }
     ];
 
-    public GameSummary[] GetGames()=>games.ToArray();
+    public GameSummary[] GetGames()=> [.. games];
 
     }
