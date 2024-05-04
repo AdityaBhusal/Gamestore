@@ -4,13 +4,29 @@
 @using Clients
 <PageTitle>Game Catalog</PageTitle>
 
+<!-- 
+    If games is null, a loading message is displayed.
+    This message informs users that data is being retrieved.
+    It's a common practice to display a loading message when data is being fetched.
+    This informs users that the application is working.
+    It also prevents users from assuming the application is unresponsive.
+    -->
 
-@if(games is null){
+@if(games == null){
     <p>Loading...</p>
 }
 
 else
 {
+    /*
+    else block is executed when games is not null.
+    This means games has been populated with data.
+    In this block, a table is rendered to display game information.
+    The table has columns for game ID, name, genre, release date, and price.
+    Each row represents a game.
+    For each game in games, a row is created with its properties.
+    The table is populated with game data.
+    */
  <table class="table table-striped table-hover table-bordered mt-3">
     <thead class="table-dark">
         <tr>
@@ -36,12 +52,39 @@ else
             </tr>
         }
     </tbody>
-</table>
+    </table>
 }
 
 @code {
     private GamesClient client = new();
     private GameSummary[]? games;
+/*
+    client is an instance of GamesClient.
+    GamesClient is a class that communicates with the server.
+    It's used to retrieve game data.
+    new() creates a new instance of GamesClient.
+    if new() is not used, client will be null.
+    client is used to retrieve game data.
+    It's initialized with a new instance of GamesClient.
+    This ensures client is not null and can be used to retrieve data.
+
+    games is an array of GameSummary.
+    GameSummary is a model class that represents a game.
+    It has properties like Id, Name, Genre, ReleaseDate, and Price.
+    games stores a collection of games.
+    It's initialized as null.
+    This indicates games has not been populated with data.
+
+    What is a nullable type?
+         - A nullable type is a type that can hold a value or null.
+        - Nullable types are declared by appending ? to the type.
+        - For example, int? is a nullable integer.
+        - Nullable types are useful when a value may be missing.
+        - They allow you to represent missing values in a type-safe manner.
+        - In your code, games is a nullable array of GameSummary.
+        - It can hold a collection of games or null.
+        - This allows you to represent the absence of games.
+    */
 
    protected override void OnInitialized()
    {

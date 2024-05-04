@@ -6,6 +6,10 @@ public class GamesClient
 {
  private readonly List<GameSummary> games=
  [
+    /*
+    we created games client to simulate a real API client that fetches data from a remote server.
+    In this case, we are using a hardcoded list of games to simulate the data.
+    */
     //cyberpunk 2077
     new(){
         Id=1,
@@ -47,7 +51,25 @@ public class GamesClient
         Price=19.99m
      }
     ];
+/*
+    we used list of GameSummary objects to store the games data.
+    list is a collection that allows us to store multiple items of the same type.
+    In this case, we are storing GameSummary objects.
 
+    syntax of list is:
+    List<T> where T is the type of the items stored in the list.
+
+    In this case, we are storing GameSummary objects, so the type of the list is List<GameSummary>.
+    We used the new keyword to create a new instance of the List<GameSummary> class.
+    We used the collection initializer syntax to add the GameSummary objects to the list.
+    The collection initializer syntax allows us to add multiple items to a collection in a single statement.
+    
+    // Collection initializer syntax
+    new List<GameSummary>
+    {
+        // Add GameSummary objects here
+    };
+*/
     public GameSummary[] GetGames()=> [.. games];
 
     }
