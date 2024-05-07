@@ -1,34 +1,60 @@
 ﻿@page "/editgame"
 @using Models
+@using Clients
+<!--
+                InputText is a Blazor component that creates a text input.
+                @bind-Value is a directive that binds the input's value to a property.
+                In this case, it binds the input's value to game.Name.
+                When the input's value changes, game.Name is updated.
+                This allows you to edit the game's name. 
+                -->
+<!-- 
+    FormName is a new attribute that allows you to name the form. 
+    EditForm is a Blazor component that wraps form elements.
+    model is a parameter that accepts the object to be edited.
+    In this case, it's game, an instance of GameDetails.
+    The form will be populated with game's properties.
+    The form will also update game's properties when edited.
+    -->
 <h3>EditGame</h3>
 
-
-<EditForm model="@game" FormName="editGame">
-<!-- 
-FormName is a new attribute that allows you to name the form. 
-EditForm is a Blazor component that wraps form elements.
-model is a parameter that accepts the object to be edited.
-In this case, it's game, an instance of GameDetails.
-The form will be populated with game's properties.
-The form will also update game's properties when edited.
--->
-    <div class="form-group">
-        <label for="Name" class="form-label">Name:</label>
-        <InputText id="Name" class="form-control" @bind-Value="game.Name" />
+@if(genres is null){
+    <p>Loading</p>
+}
+else{
+    <EditForm model="@game" FormName="editGame">
+    
+    <div class="row">
+        <div class="col-md-4">
+            
+            <div class="form-group">
+                <label for="Name" class="form-label">Name:</label>
+                <InputText id="Name" class="form-control" @bind-Value="game.Name" />
+                
+            </div>
+            
+            <div class="form-group">
+                <label for="genre" class="form-label">Genre:</label>
+                <InputSelect id="genre" class="form-control" @bind-Value="game.GenreId" >
+                    <option value="">Select an option</option>
+                
+                    @foreach(var genre in genres){
+                        <option value="@genre.Id">@genre.Name</option>
+                    }
+    
+                </InputSelect>
+            </div>
+            <div class="form-group">
+                <label for="releaseDate" class="form-label">Release Date:</label>
+                <InputDate id="releaseDate" class="form-control" @bind-Value="game.ReleaseDate" />
+            </div>
+            <div class ="form-group">
+                <label for ="price" class="form-label">Price: </label>
+                <InputNumber id="price" class="form-control" @bind-Value="game.Price" />
+            </div>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="Name" class="form-label">Name:</label>
-        <InputText id="Name" class="form-control" @bind-Value="game.Name" />
-    </div>
-    <div class="form-group">
-        <label for="Name" class="form-label">Name:</label>
-        <InputText id="Name" class="form-control" @bind-Value="game.Name" />
-    </div>
-    <div class="form-group">
-        <label for="Name" class="form-label">Name:</label>
-        <InputText id="Name" class="form-control" @bind-Value="game.Name" />
-    </div>
-</EditForm>
+    </EditForm>
 }
 @code {
  /* */
@@ -46,8 +72,22 @@ The form will also update game's properties when edited.
         ReleaseDate is initialized with the current date.
         other properties are not initialized because they are not required.
      */
+     /*
+     get; set; is used to define a property.
+        It creates a property with a getter and setter.
+        getter and setter are methods that get and set the property's value.
+        getter returns the property's value.
+        setter sets the property's value.
+     */
     Name=String.Empty,
-    ReleaseDate=DateOnly.FromDateTime(DateTime.Now),
-    Genre=String.Empty
+    ReleaseDate=DateOnly.FromDateTime(DateTime.Now)
  };
+
+ private GenresClient genresClient=new();
+ private Genre[]? genres;
+
+ protected override void OnInitialized(){
+    genres=genresClient.getGenres();
+ }
+
 }
