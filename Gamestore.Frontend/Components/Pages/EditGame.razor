@@ -1,6 +1,5 @@
 ﻿@page "/editgame"
-@using Models
-@using Clients
+
 <!--
 InputText is a Blazor component that creates a text input.
 @bind-Value is a directive that binds the input's value to a property.
@@ -19,7 +18,7 @@ This allows you to edit the game's name.
 <h3>EditGame</h3>
 
 @if(genres is null){
-    <p>Loading</p>
+    <p>Loading.....</p>
 }
 else{
     <EditForm model="@game" FormName="editGame">

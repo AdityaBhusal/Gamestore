@@ -7,7 +7,6 @@ public class GamesClient
  private readonly List<GameSummary> games=
  [
     /*
-    we created games client to simulate a real API client that fetches data from a remote server.
     In this case, we are using a hardcoded list of games to simulate the data.
     */
     //cyberpunk 2077
