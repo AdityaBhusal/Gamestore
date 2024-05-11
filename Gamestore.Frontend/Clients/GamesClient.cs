@@ -71,4 +71,25 @@ public class GamesClient
 */
     public GameSummary[] GetGames()=> [.. games];
 
+    public void AddGame(GameDetails game)
+    {
+        //we receive game details not game summary from edit.razor
+        //we need to convert game details to game summary
+        //we need to generate a new id for the game
+        //we need to add the new game to the list of games withthe help of edit.razor page
+        //edit.razor page will call this method to add the new game to the list of games
+
+
+        //the syntax for var is:
+        //var variableName = value;
+        //we used the var keyword to declare a variable without specifying the type explicitly.
+        //The type of the variable is inferred from the value assigned to it.
+        //In this case, the type of the variable is GameSummary because the value assigned to it is a GameSummary object.
+        //We used the new keyword to create a new instance of the GameSummary class.
+        //We used the object initializer syntax to set the properties of the GameSummary object.
+        //The object initializer syntax allows us to set the properties of an object in a single statement.
+        var GameSummary = new GameSummary
+    }
+
+    }
     }
