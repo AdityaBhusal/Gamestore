@@ -21,7 +21,7 @@ This allows you to edit the game's name.
     <p>Loading.....</p>
 }
 else{
-    <EditForm model="@game" FormName="editGame">
+    <EditForm model="@game" FormName="editGame" OnSubmit="HandleSubmit">
     
     <div class="row">
         <div class="col-md-4">
@@ -53,10 +53,18 @@ else{
             </div>
         </div>
     </div>
+    <button type="submit" class="btn btn-primary">Save</button>
     </EditForm>
 }
 @code {
  /* */
+    [SupplyParameterFromForm]
+
+    //supply parameter from form is an attribute that allows you to bind a parameter to a form.
+    //It binds the parameter to the form with the specified name.
+    //In this case, it binds the parameter to the form with the name editGame.
+    //When the form is submitted, the parameter is updated with the form's values
+
  private GameDetails game{get; set;} = new(){
     /*
       an instance of GameDetails is created and assigned to game property.
@@ -83,10 +91,16 @@ else{
  };
 
  private GenresClient genresClient=new();
+ private GamesClient gamesClient=new();
  private Genre[]? genres;
 
  protected override void OnInitialized(){
     genres=genresClient.getGenres();
  }
-
+    private void HandleSubmit(){
+        /*
+        HandleSubmit is a method that is called when the form is submitted.
+        */
+        gamesClient.AddGame(game);
+        }
 }

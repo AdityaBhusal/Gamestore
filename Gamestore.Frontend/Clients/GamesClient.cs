@@ -69,6 +69,13 @@ public class GamesClient
         // Add GameSummary objects here
     };
 */
+    private readonly Genre[] genres = new GenresClient.getGenres();
+
+    //we used array of Genre objects to store the genres data.
+    //the genres data is retrieved from the GenresClient class using the GetGenres method.
+    //the GetGenres method returns an array of Genre objects which is defined in the GenresClient class.
+    //which is defined in the GenresClient class.
+
     public GameSummary[] GetGames()=> [.. games];
 
     public void AddGame(GameDetails game)
@@ -88,8 +95,48 @@ public class GamesClient
         //We used the new keyword to create a new instance of the GameSummary class.
         //We used the object initializer syntax to set the properties of the GameSummary object.
         //The object initializer syntax allows us to set the properties of an object in a single statement.
-        var GameSummary = new GameSummary
+
+        ArgumentExeption.ThrowIfNullOrWhiteSpace(game.GenreId);
+        
+        
+        //we used the ArgumentExeption.ThrowIfNullOrWhiteSpace method to check if the genre id is null or whitespace.
+        //The ThrowIfNullOrWhiteSpace method throws an ArgumentException if the genre id is null or whitespace.
+        //The ArgumentException is a built-in exception class that represents an exception that is thrown when one of the arguments provided to a method is not valid.
+        //The ArgumentException class has a constructor that takes a message as an argument.
+        //The message is a string that describes the error that occurred.
+        //In this case, the message is "GenreId cannot be null or whitespace.".
+        //The ArgumentException class has a property called ParamName that stores the name of the parameter that caused the exception.
+        //In this case, the parameter name is "game.GenreId".
+        //The ArgumentException class has a property called Message that stores the error message.
+        //In this case, the error message is "GenreId cannot be null or whitespace.".
+
+        
+        var genre = genres.Single(genre => genre.Id == int.Parse(game.GenreId));
+        //we used the Single method to find the genre with the specified id.
+        //The Single method returns the first element of the sequence that satisfies the specified condition.
+        //In this case, the condition is genre => genre.Id == int.Parse(game.GenreId).
+        //The condition checks if the id of the genre is equal to the id of the game genre.
+        //The int.Parse method is used to convert the genre id from a string to an integer.
+        //The genre id is stored as a string in the game object, so we need to convert it to an integer to compare it with the genre id.
+
+        var GameSummary = new GameSummary{
+            Id=games.count+1,
+            Name=game.Name,
+
+            /*
+            Genre=game.GenreId,
+            -------------------
+            ^^^^^^^^^^^^^^^^^^^
+            -> this won't work because we need to convert the genre id to genre name
+            */
+
+            ReleaseDate=game.ReleaseDate,
+            Price=game.Price
+        };
     }
 
+        
+
     }
-    }
+
+    
