@@ -1,4 +1,5 @@
-﻿using Gamestore.Frontend.Models;
+﻿using System;
+using Gamestore.Frontend.Models;
 
 namespace Gamestore.Frontend.Clients;
 
@@ -69,7 +70,9 @@ public class GamesClient
         // Add GameSummary objects here
     };
 */
-    private readonly Genre[] genres = new GenresClient.getGenres();
+    private readonly Genre[] genres = new GenresClient().getGenres();
+
+    public Genre[] Genres1 => genres;
 
     //we used array of Genre objects to store the genres data.
     //the genres data is retrieved from the GenresClient class using the GetGenres method.
@@ -96,7 +99,7 @@ public class GamesClient
         //We used the object initializer syntax to set the properties of the GameSummary object.
         //The object initializer syntax allows us to set the properties of an object in a single statement.
 
-        ArgumentExeption.ThrowIfNullOrWhiteSpace(game.GenreId);
+        ArgumentException.ThrowIfNullOrWhiteSpace(game.GenreId);
         
         
         //we used the ArgumentExeption.ThrowIfNullOrWhiteSpace method to check if the genre id is null or whitespace.
@@ -120,7 +123,7 @@ public class GamesClient
         //The genre id is stored as a string in the game object, so we need to convert it to an integer to compare it with the genre id.
 
         var GameSummary = new GameSummary{
-            Id=games.count+1,
+            Id=games.Count+1,
             Name=game.Name,
 
             /*
@@ -129,10 +132,18 @@ public class GamesClient
             ^^^^^^^^^^^^^^^^^^^
             -> this won't work because we need to convert the genre id to genre name
             */
-
+            Genre=genre.Name,
             ReleaseDate=game.ReleaseDate,
             Price=game.Price
         };
+
+        games.Add(GameSummary);
+        //we used the Add method to add the new game to the list of games.
+        //The Add method adds an item to the end of the list.
+        //In this case, we added the GameSummary object to the games list.
+        //The GameSummary object contains the details of the new game that was created.
+        //The new game is added to the end of the list of games.
+
     }
 
         
