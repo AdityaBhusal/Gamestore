@@ -115,6 +115,9 @@ public class GamesClient
 
         
         var genre = genres.Single(genre => genre.Id == int.Parse(game.GenreId));
+
+        //return a genre whose id is 
+
         //we used the Single method to find the genre with the specified id.
         //The Single method returns the first element of the sequence that satisfies the specified condition.
         //In this case, the condition is genre => genre.Id == int.Parse(game.GenreId).
