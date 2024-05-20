@@ -1,5 +1,6 @@
 ﻿@page "/editgame"
-
+@inject NavigationManager NavigationManager
+<PageTitle>Add Game</PageTitle>
 <!--
 InputText is a Blazor component that creates a text input.
 @bind-Value is a directive that binds the input's value to a property.
@@ -15,7 +16,7 @@ This allows you to edit the game's name.
     The form will be populated with game's properties.
     The form will also update game's properties when edited.
     -->
-<h3>EditGame</h3>
+<h3>Add Games</h3>
 
 @if(genres is null){
     <p>Loading.....</p>
@@ -54,6 +55,7 @@ else{
         </div>
     </div>
     <button type="submit" class="btn btn-primary mt-3">Save</button>
+    <a type="Cancel" class="btn btn-secondary mt-3" href="/">Cancel</a>
     </EditForm>
 }
 @code {
@@ -96,5 +98,6 @@ else{
         HandleSubmit is a method that is called when the form is submitted.
         */
         gamesClient.AddGame(game);
+        NavigationManager.NavigateTo("/");
         }
 }
