@@ -1,4 +1,6 @@
 ﻿@page "/"
+@inject GamesClient Client
+
 <!-- we can also import @using Models or @using Gamestore.Frontend.Models -->
 
 <PageTitle>Game Catalog</PageTitle>
@@ -57,7 +59,6 @@ else
 }
 
 @code {
-    private GamesClient client = new();
     private GameSummary[]? games;
 /*
     client is an instance of GamesClient.
@@ -87,9 +88,9 @@ else
         - This allows you to represent the absence of games.
 */
 
-   protected override void OnInitialized()
+   protected override void  OnInitialized()
    {
-        games=client.GetGames();
+        games=Client.GetGames();
     /*
     OnInitialized is a lifecycle method in Blazor.
     It's called when a component is being initialized.

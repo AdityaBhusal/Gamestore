@@ -1,5 +1,7 @@
 ﻿@page "/editgame"
 @inject NavigationManager NavigationManager
+@inject GamesClient GamesClient
+
 <PageTitle>Add Game</PageTitle>
 <!--
 InputText is a Blazor component that creates a text input.
@@ -55,7 +57,6 @@ else{
         </div>
     </div>
     <button type="submit" class="btn btn-primary mt-3">Save</button>
-    <a type="Cancel" class="btn btn-secondary mt-3" href="/">Cancel</a>
     </EditForm>
 }
 @code {
@@ -97,7 +98,7 @@ else{
         /*
         HandleSubmit is a method that is called when the form is submitted.
         */
-        gamesClient.AddGame(game);
+        GamesClient.AddGame(game);
         NavigationManager.NavigateTo("/");
         }
 }
