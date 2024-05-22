@@ -33,7 +33,7 @@ else{
             <div class="form-group">
                 <label for="Name" class="form-label">Name:</label>
                 <InputText id="Name" class="form-control" @bind-Value="game.Name" />
-                
+                <ValidationMessage For="()=>game.Name" />
             </div>
             
             <div class="form-group">
@@ -46,6 +46,7 @@ else{
                     }
     
                 </InputSelect>
+                <ValidationMessage For="()=>game.GenreId" />
             </div>
             <div class="form-group">
                 <label for="releaseDate" class="form-label">Release Date:</label>
@@ -54,6 +55,7 @@ else{
             <div class ="form-group">
                 <label for ="price" class="form-label">Price: </label>
                 <InputNumber id="price" class="form-control" @bind-Value="game.Price" />
+                <ValidationMessage For="()=>game.Price" />
             </div>
         </div>
     </div>
