@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using Gamestore.Frontend.Models;
 
 namespace Gamestore.Frontend.Clients;
@@ -60,33 +61,55 @@ public class GamesClient
     public void AddGame(GameDetails game)
     {
 
-    ArgumentException.ThrowIfNullOrWhiteSpace(game.GenreId);
-    var genre = genres.FirstOrDefault(g => g.Id ==int.Parse( game.GenreId));
-    if(genre==null) 
+        ArgumentException.ThrowIfNullOrWhiteSpace(game.GenreId);
+        var genre = genres.FirstOrDefault(g => g.Id == int.Parse(game.GenreId));
+        if (genre is null)
+        {
+            throw new ArgumentException("Invalid genre id");
+        }
+        else
+        {
+            var GameSummary = new GameSummary
+            {
+                Id = games.Count + 1,
+                Name = game.Name,
+
+                /*
+                Genre=game.GenreId,
+                -------------------
+                ^^^^^^^^^^^^^^^^^^^
+                -> this won't work because we need to convert the genre id to genre name
+                */
+                Genre = genre.Name,
+                ReleaseDate = game.ReleaseDate,
+                Price = game.Price
+            };
+
+            games.Add(GameSummary);
+        }
+
+    }
+
+    public GameDetails GetGamesByInt(int id)
     {
-        throw new ArgumentException("Invalid genre id");
-    }
+      var game=games.FirstOrDefault(g=>g.Id==id);
+      ArgumentNullException.ThrowIfNull(game,"Game not found");
+
+      var genre=genres.Single(genre=>string.Equals(
+        genre.Name,
+        game.Genre,
+        StringComparison.OrdinalIgnoreCase));
       
-        var GameSummary = new GameSummary{
-            Id=games.Count+1,
-            Name=game.Name,
+    return new GameDetails
+    {
+        Id=game.Id,
+        Name=game.Name,
+        GenreId=genre.Id.ToString(),
+        ReleaseDate=game.ReleaseDate,
+        Price=game.Price
+    };
 
-            /*
-            Genre=game.GenreId,
-            -------------------
-            ^^^^^^^^^^^^^^^^^^^
-            -> this won't work because we need to convert the genre id to genre name
-            */
-            Genre=genre.Name,
-            ReleaseDate=game.ReleaseDate,
-            Price=game.Price
-        };
-
-        games.Add(GameSummary);
-       
     }
-
-        
-    }
+}
 
     
