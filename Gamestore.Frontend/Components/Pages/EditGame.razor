@@ -66,6 +66,8 @@ else{
     </EditForm>
 }
 @code {
+    [Parameter]
+    public int Id{get; set;}
  /* */
     [SupplyParameterFromForm]
 
@@ -74,8 +76,8 @@ else{
     //In this case, it binds the parameter to the form with the name editGame.
     //When the form is submitted, the parameter is updated with the form's values
 
- private GameDetails game{get; set;} = new(){
-    /*
+ private GameDetails? game{get; set;} = new(){
+    /*  
       an instance of GameDetails is created and assigned to game property.
         GameDetails is a model class that represents a game.
         It has properties like Name, ReleaseDate, Id, Genre, and Price.
@@ -95,7 +97,19 @@ else{
 
  private GamesClient gamesClient=new();
  private Genre[]? genres;
+protected override void OnParametersSet(){
+    if(Id is  not null){
+        game=GamesClient.GetGame(Id.Value);
 
+    }
+    else{
+        game=new (){
+            Name=String.Empty,
+            ReleaseDate=DateOnly.FromDateTime(DateTime.Now)
+        };
+    
+    }
+}
  protected override void OnInitialized(){
     genres=GenresClient.getGenres();
  }
