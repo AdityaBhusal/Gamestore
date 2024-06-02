@@ -4,7 +4,7 @@
 @inject GamesClient GamesClient
 @inject GenresClient GenresClient
 
-<PageTitle>Add Game</PageTitle>
+<PageTitle>@title</PageTitle>
 <!--
 InputText is a Blazor component that creates a text input.
 @bind-Value is a directive that binds the input's value to a property.
@@ -20,7 +20,7 @@ This allows you to edit the game's name.
     The form will be populated with game's properties.
     The form will also update game's properties when edited.
     -->
-<h3>Add Games</h3>
+<h3>@title</h3>
 
 @if(genres is null || game is null){
     <p>Loading.....</p>
@@ -80,19 +80,20 @@ else{
 
  private GamesClient gamesClient=new();
  private Genre[]? genres;
+ private string title=string.Empty;
 protected override void OnParametersSet(){
     if (game is not null)
     return;
     if(Id is  not null){
         game=GamesClient.GetGamesByInt(Id.Value);
-
+        title=$"Edit: {game.Name}";
     }
     else{
         game=new (){
             Name=String.Empty,
             ReleaseDate=DateOnly.FromDateTime(DateTime.Now)
         };
-    
+        title="Add Game";
     }
 }
  protected override void OnInitialized(){
