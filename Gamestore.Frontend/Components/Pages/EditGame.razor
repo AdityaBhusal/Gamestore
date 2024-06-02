@@ -67,13 +67,13 @@ else{
 }
 @code {
     [Parameter]
-    public int Id{get; set;}
+    public int? Id{get; set;}
  /* */
     [SupplyParameterFromForm]
 
     //supply parameter from form is an attribute that allows you to bind a parameter to a form.
     //It binds the parameter to the form with the specified name.
-    //In thi s case, it binds the parameter to the form with the name editGame.
+    //In thi `````````s case, it binds the parameter to the form with the name editGame.
     //When the form is submitted, the parameter is updated with the form's values
 
  private GameDetails? game{get; set;}
@@ -81,8 +81,10 @@ else{
  private GamesClient gamesClient=new();
  private Genre[]? genres;
 protected override void OnParametersSet(){
+    if (game is not null)
+    return;
     if(Id is  not null){
-        game=GamesClient.GetGame(Id.Value);
+        game=GamesClient.GetGamesByInt(Id.Value);
 
     }
     else{
