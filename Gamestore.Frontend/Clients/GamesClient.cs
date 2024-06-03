@@ -60,7 +60,7 @@ public class GamesClient
 
     public void AddGame(GameDetails game)
     {
-        Genre? genre = GetGenreById(game);
+        Genre genre = GetGenreById(game);
         if (genre is null)
         {
             throw new ArgumentException("Invalid genre id");
@@ -88,11 +88,10 @@ public class GamesClient
 
     }
 
-    private Genre? GetGenreById(GameDetails game)
+    private Genre GetGenreById(string? id)
     {
-        ArgumentException.ThrowIfNullOrWhiteSpace(game.GenreId);
-        var genre = genres.FirstOrDefault(g => g.Id == int.Parse(game.GenreId));
-        return genre;
+        ArgumentException.ThrowIfNullOrWhiteSpace(id);
+        return  genres.Single(g => g.Id == int.Parse(id));
     }
 
     public GameDetails GetGamesByInt(int id)
