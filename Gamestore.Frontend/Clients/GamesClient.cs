@@ -103,7 +103,15 @@ public class GamesClient
         };
 
     }
+    public void UpdateGame(GameDetails updatedGame){
+        var genre=GetGenreById(updatedGame.GenreId);
+        GameSummary existingGame=GetGameSummaryById(updatedGame.Id);
 
+        existingGame.Name=updatedGame.Name;
+        existingGame.Genre=genre.Name;
+        existingGame.ReleaseDate=updatedGame.ReleaseDate;
+        existingGame.Price=updatedGame.Price;
+    }
     private GameSummary GetGameSummaryById(int id)
     {
         var game = games.FirstOrDefault(g => g.Id == id);
