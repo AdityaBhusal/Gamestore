@@ -54,13 +54,10 @@ public class GamesClient
     ];
 
     private readonly Genre[] genres = new GenresClient().getGenres();
-
-
     public GameSummary[] GetGames()=> [.. games];
-
     public void AddGame(GameDetails game)
     {
-        Genre genre = GetGenreById(game);
+        Genre genre = GetGenreById(game.GenreId);
         if (genre is null)
         {
             throw new ArgumentException("Invalid genre id");
@@ -87,32 +84,37 @@ public class GamesClient
         }
 
     }
+    public GameDetails GetGamesByInt(int id)
+    {
+        GameSummary game = GetGameSummaryById(id);
+
+        var genre = genres.Single(genre => string.Equals(
+          genre.Name,
+          game.Genre,
+          StringComparison.OrdinalIgnoreCase));
+
+        return new GameDetails
+        {
+            Id = game.Id,
+            Name = game.Name,
+            GenreId = genre.Id.ToString(),
+            ReleaseDate = game.ReleaseDate,
+            Price = game.Price
+        };
+
+    }
+
+    private GameSummary GetGameSummaryById(int id)
+    {
+        var game = games.FirstOrDefault(g => g.Id == id);
+        ArgumentNullException.ThrowIfNull(game, "Game not found");
+        return game;
+    }
 
     private Genre GetGenreById(string? id)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(id);
         return  genres.Single(g => g.Id == int.Parse(id));
-    }
-
-    public GameDetails GetGamesByInt(int id)
-    {
-      var game=games.FirstOrDefault(g=>g.Id==id);
-      ArgumentNullException.ThrowIfNull(game,"Game not found");
-
-      var genre=genres.Single(genre=>string.Equals(
-        genre.Name,
-        game.Genre,
-        StringComparison.OrdinalIgnoreCase));
-      
-    return new GameDetails
-    {
-        Id=game.Id,
-        Name=game.Name,
-        GenreId=genre.Id.ToString(),
-        ReleaseDate=game.ReleaseDate,
-        Price=game.Price
-    };
-//
     }
 }
 
