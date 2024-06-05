@@ -104,7 +104,15 @@ protected override void OnParametersSet(){
         HandleSubmit is a method that is called when the form is submitted.
         */
         ArgumentNullException.ThrowIfNull(game);
+
+        if(Id is null){
         GamesClient.AddGame(game);
+
+        }
+        else{
+            game.Id=Id.Value;
+            GamesClient.UpdateGame(game);
+        }
         NavigationManager.NavigateTo("/");
         }
 }
