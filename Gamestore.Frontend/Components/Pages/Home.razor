@@ -53,10 +53,14 @@ else
                 <td class="text-end">@game.Price.ToString("C2")</td>
                <td>
                 <div>
-                    <a class="btn btn-secondary me-2" role="buttton" href="@GameUrl(game.Id)">
+                    <a class="btn btn-secondary" role="buttton" href="@GameUrl(game.Id)">
                         <i class="bi bi-pencil" ></i>
                     </a>
+                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="@GetDeleteModalId(game)">
+                        <i class="bi bi-trash3-fill "></i>
+                    </button>
                 </div>
+                <DeleteGame Game= "@game" />
                </td>
             </tr>
         }
@@ -113,6 +117,9 @@ else
 
    //a function to define the anchor tag href for editing the games
    private static string GameUrl(int id)=>$"/editgame/{id}";
+   private string GetDeleteModalId (GameSummary game){
+    return $"#{DeleteGame.GetModelId(game)}";
+   }
  
 }
 
