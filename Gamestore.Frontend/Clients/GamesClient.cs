@@ -112,6 +112,10 @@ public class GamesClient
         existingGame.ReleaseDate=updatedGame.ReleaseDate;
         existingGame.Price=updatedGame.Price;
     }
+    public void DeleteGame(int id){
+        var game =GetGameSummaryById(id);
+        games.Remove(game);
+    }
     private GameSummary GetGameSummaryById(int id)
     {
         var game = games.FirstOrDefault(g => g.Id == id);
@@ -124,6 +128,7 @@ public class GamesClient
         ArgumentException.ThrowIfNullOrWhiteSpace(id);
         return  genres.Single(g => g.Id == int.Parse(id));
     }
+
 }
 
     
