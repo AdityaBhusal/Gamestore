@@ -25,7 +25,9 @@ List<GameDto> games=[
         29.99m,
         new DateOnly(2011, 11, 18)
     )
-]
+];
+
+app.MapGet("games", () => games);
 app.MapGet("/", () => "Hello World!");
 
 app.Run();
