@@ -4,7 +4,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 var app = builder.Build();
 
-
+const string GetGameEndPointName = "GetGame";
 List<GameDto> games=[
     new(
         1,
@@ -35,7 +35,7 @@ app.MapGet("games", () => games);
 //Get /games/{id}
 app.MapGet("games/{id}",
  (int id)=>games.Find(g=>g.Id==id))
-    .WithName("GetGame");
+    .WithName(GetGameEndPointName);
 
  //post /games
  app.MapPost("games", (CreateGameDto newGame) =>
@@ -49,6 +49,6 @@ app.MapGet("games/{id}",
 
         games.Add(game);
 
-        return Results.CreatedAtRoute("GetGame", new {id = game.Id}, game);
+        return Results.CreatedAtRoute(GetGameEndPointName, new {id = game.Id}, game);
     });
 app.Run();
