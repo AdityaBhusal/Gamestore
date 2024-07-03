@@ -51,4 +51,5 @@ app.MapGet("games/{id}",
 
         return Results.CreatedAtRoute(GetGameEndPointName, new {id = game.Id}, game);
     });
+    
 app.Run();

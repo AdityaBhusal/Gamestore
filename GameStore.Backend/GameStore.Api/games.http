@@ -2,3 +2,14 @@ GET http://localhost:5057/games
 
 ###
 GET http://localhost:5057/games/4
+
+###
+POST http://localhost:5057/games
+Content-Type: application/json
+
+{
+    "name": "GTA 6",
+    "genre": "Action",
+    "price": 50,
+    "releaseDate": "2022-12-31"
+}
