@@ -34,8 +34,14 @@ app.MapGet("games", () => games);
 
 //Get /games/{id}
 app.MapGet("games/{id}",
- (int id)=>games.Find(g=>g.Id==id))
-    .WithName(GetGameEndPointName);
+ (int id)=>
+{
+    GameDto? game =  games.Find(g=>g.Id==id);
+
+    return game is not null ? Results.Ok(game): Results.NotFound();
+
+})
+.WithName(GetGameEndPointName);
 
  //post /games
  app.MapPost("games", (CreateGameDto newGame) =>
@@ -72,7 +78,7 @@ app.MapPut("games/{id}", (int id, UpdateGameDto updatedGame)=>
 app.MapDelete("games/{id}",(int id)=>
 {
     games.RemoveAll(game=>game.Id == id);
-    return Results.NoContent();
+    return Results.NoContent;
 }
 );
 app.Run();
