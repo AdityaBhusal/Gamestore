@@ -1,7 +1,8 @@
 GET http://localhost:5057/games
 
 ###
-GET http://localhost:5057/games/2
+GET http://localhost:5057/games/1
+
 
 ###
 POST http://localhost:5057/games
@@ -15,16 +16,25 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:5057/games/1
+# PUT http://localhost:5057/games/2
+# Content-Type: application/json
+
+# {
+#     "name": "GTA 6",
+#     "genre": "Action",
+#     "price": 50,
+#     "releaseDate": "2022-12-31"
+# }
+
+###
+PUT http://localhost:5057/games/3
 Content-Type: application/json
 
- {
-    "id": 1,
-    "name": "Mario Bros",
-    "genre": "Platform",
-    "price": 99,
-    "releaseDate": "1985-09-13"
-  }
-
-  ###
+{
+    "name": "GTA 6",
+    "genre": "Action",
+    "price": 80,
+    "releaseDate": "2022-12-31"
+}
+###
 DELETE http://localhost:5057/games/2

@@ -58,21 +58,22 @@ app.MapGet("games/{id}",
         return Results.CreatedAtRoute(GetGameEndPointName, new {id = game.Id}, game);
     });
 
-//post /games
-app.MapPut("games/{id}", (int id, UpdateGameDto updatedGame)=>
+//put /games/{id}
+app.MapPut("games/{id}", (int id, UpdateGameDto updatedGame) =>
 {
-    var index = games.FindIndex(game=>game.Id == id);
+    var index = games.FindIndex(game => game.Id == id );
 
-    games[index] = new GameDto(
+    games[index] = new GameDto
+    (
         id,
         updatedGame.Name,
         updatedGame.Genre,
         updatedGame.Price,
-        updatedGame.ReleaseDate);
+        updatedGame.ReleaseDate
+    );
 
-        return Results.NoContent();
-}
-);
+    return Results.NoContent();
+});
 
 //delete /game/{id}
 app.MapDelete("games/{id}",(int id)=>
