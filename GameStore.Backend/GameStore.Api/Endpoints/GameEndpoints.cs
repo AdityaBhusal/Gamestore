@@ -51,7 +51,7 @@ public static class GameEndpoints
 
                 return Results.CreatedAtRoute(GetGameEndPointName, new { id = game.Id }, game);
             }
-        );
+        ).WithParameterValidation();
 
         //put /games/{id}
         group.MapPut(
