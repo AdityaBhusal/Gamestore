@@ -9,7 +9,6 @@ POST http://localhost:5057/games
 Content-Type: application/json
 
 {
-    "name": "GTA 6",
     "genre": "Action",
     "price": 50,
     "releaseDate": "2022-12-31"
@@ -28,5 +27,10 @@ Content-Type: application/json
     "releaseDate": "2022-12-31"
 }
 
+
+
+
+
+
 ###
-DELETE http://localhost:5057/games/2
+DELETE http://localhost:5057/games/1

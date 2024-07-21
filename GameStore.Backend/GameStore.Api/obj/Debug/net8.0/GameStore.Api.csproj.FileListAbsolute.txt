@@ -24,3 +24,9 @@ C:\Users\Asus\OneDrive\desktop\JulioCasalYT\GameStore\GameStore.Backend\GameStor
 C:\Users\Asus\OneDrive\desktop\JulioCasalYT\GameStore\GameStore.Backend\GameStore.Api\obj\Debug\net8.0\GameStore.Api.pdb
 C:\Users\Asus\OneDrive\desktop\JulioCasalYT\GameStore\GameStore.Backend\GameStore.Api\obj\Debug\net8.0\GameStore.Api.genruntimeconfig.cache
 C:\Users\Asus\OneDrive\desktop\JulioCasalYT\GameStore\GameStore.Backend\GameStore.Api\obj\Debug\net8.0\ref\GameStore.Api.dll
+C:\Users\Asus\OneDrive\Desktop\JulioCasalYT\GameStore\GameStore.Backend\GameStore.Api\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\Asus\OneDrive\Desktop\JulioCasalYT\GameStore\GameStore.Backend\GameStore.Api\bin\Debug\net8.0\MinimalApis.Extensions.dll
+C:\Users\Asus\OneDrive\Desktop\JulioCasalYT\GameStore\GameStore.Backend\GameStore.Api\bin\Debug\net8.0\MiniValidation.dll
+C:\Users\Asus\OneDrive\Desktop\JulioCasalYT\GameStore\GameStore.Backend\GameStore.Api\obj\Debug\net8.0\GameStore.Api.csproj.AssemblyReference.cache
+C:\Users\Asus\OneDrive\Desktop\JulioCasalYT\GameStore\GameStore.Backend\GameStore.Api\obj\Debug\net8.0\GameStore.Api.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Asus\OneDrive\Desktop\JulioCasalYT\GameStore\GameStore.Backend\GameStore.Api\obj\Debug\net8.0\GameStore.Api.csproj.CopyComplete
