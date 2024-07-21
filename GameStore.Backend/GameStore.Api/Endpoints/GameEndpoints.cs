@@ -15,8 +15,7 @@ public static class GameEndpoints
 
     public static RouteGroupBuilder MapGamesEndpoints(this WebApplication app)
     {
-        var group = app.MapGroup("games")
-                    .WithParameterValidation();
+        var group = app.MapGroup("games").WithParameterValidation();
 
         //GET /games
         group.MapGet("", () => games);
@@ -79,15 +78,17 @@ public static class GameEndpoints
         );
 
         //delete /game/{id}
-        group.MapDelete("/{id}", (int id) =>
-        {
-            var game = games.RemoveAll(g => g.Id == id);
+        group.MapDelete(
+            "/{id}",
+            (int id) =>
+            {
+                var game = games.RemoveAll(g => g.Id == id);
 
-
-            //If the game was deleted, return 204 No Content
-            //If the game was not found, return 404 Not Found
-            return game > 0 ? Results.NoContent() : Results.NotFound();
-        });
+                //If the game was deleted, return 204 No Content
+                //If the game was not found, return 404 Not Found
+                return game > 0 ? Results.NoContent() : Results.NotFound();
+            }
+        );
 
         return group;
     }
