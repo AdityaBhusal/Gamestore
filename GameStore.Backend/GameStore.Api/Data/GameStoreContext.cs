@@ -1,6 +1,9 @@
-﻿namespace GameStore.Api.Data;
+﻿using Microsoft.EntityFrameworkCore;
 
-public class GameStoreContext
+namespace GameStore.Api.Data;
+
+public class GameStoreContext (DbContextOptions<GameStoreContext> options)
+ : DbContext(options)
 {
 
 }
