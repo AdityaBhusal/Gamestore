@@ -1,6 +1,6 @@
 ﻿namespace GameStore.Api.Data;
 
-public class GameContext
+public class GameStoreContext
 {
 
 }
