@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Asus\\OneDrive\\Desktop\\JulioCasalYT\\GameStore\\GameStore.Backend\\GameStore.Api\\GameStore.Api.csproj": {}
+    "C:\\Users\\Asus\\OneDrive\\Desktop\\JulioCasalYT\\GameStore\\GameStore.Backend\\GameStore.Api\\GameStore.Api.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Asus\\OneDrive\\Desktop\\JulioCasalYT\\GameStore\\GameStore.Backend\\GameStore.Api\\GameStore.Api.csproj": {
+    "C:\\Users\\Asus\\OneDrive\\Desktop\\JulioCasalYT\\GameStore\\GameStore.Backend\\GameStore.Api\\GameStore.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Asus\\OneDrive\\Desktop\\JulioCasalYT\\GameStore\\GameStore.Backend\\GameStore.Api\\GameStore.Api.csproj",
+        "projectUniqueName": "C:\\Users\\Asus\\OneDrive\\Desktop\\JulioCasalYT\\GameStore\\GameStore.Backend\\GameStore.Api\\GameStore.Api.csproj",
         "projectName": "GameStore.Api",
-        "projectPath": "c:\\Users\\Asus\\OneDrive\\Desktop\\JulioCasalYT\\GameStore\\GameStore.Backend\\GameStore.Api\\GameStore.Api.csproj",
+        "projectPath": "C:\\Users\\Asus\\OneDrive\\Desktop\\JulioCasalYT\\GameStore\\GameStore.Backend\\GameStore.Api\\GameStore.Api.csproj",
         "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Asus\\OneDrive\\Desktop\\JulioCasalYT\\GameStore\\GameStore.Backend\\GameStore.Api\\obj\\",
+        "outputPath": "C:\\Users\\Asus\\OneDrive\\Desktop\\JulioCasalYT\\GameStore\\GameStore.Backend\\GameStore.Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -45,6 +45,12 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.2, )"
+            },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
               "version": "[8.0.2, )"
