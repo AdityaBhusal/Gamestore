@@ -24,7 +24,8 @@ public class GameStoreContext : DbContext
                 new Genre { Id = 6, Name = "Sports" },
                 new Genre { Id = 7, Name = "Puzzle" },
                 new Genre { Id = 8, Name = "Horror" },
-                new Genre { Id = 9, Name = "Survival" }
+                new Genre { Id = 9, Name = "Survival" },
+                new Genre { Id = 10, Name = "Fighting" }
             );
     }
 }
