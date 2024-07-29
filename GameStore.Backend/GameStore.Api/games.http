@@ -6,8 +6,8 @@ GET http://localhost:5057/games
 POST http://localhost:5057/games
 Content-Type: application/json
 
-{
-    "genre": "Action",
+{   "name":"gta v",
+    "genreId": 1,
     "price": 50,
     "releaseDate": "2022-12-31"
 }
