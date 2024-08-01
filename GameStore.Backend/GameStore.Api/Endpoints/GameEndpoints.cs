@@ -42,7 +42,7 @@ public static class GameEndpoints
             (CreateGameDto newGame, GameStoreContext dbContext) =>
             {
                 Game game = newGame.ToEntity();
-                game.Genre = dbContext.Genre.Find(newGame.GenreId);
+                // game.Genre = dbContext.Genre.Find(newGame.GenreId);
 
                 dbContext.Games.Add(game);
                 dbContext.SaveChanges();
