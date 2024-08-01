@@ -7,7 +7,7 @@ POST http://localhost:5057/games
 Content-Type: application/json
 
 {   "name":"Street Fighter",
-    "genreId": 10,
+    "genreId": 4,
     "price": 50,
     "releaseDate": "2022-12-31"
 }
@@ -31,4 +31,4 @@ Content-Type: application/json
 
 
 ###
-DELETE http://localhost:5057/games/1
+DELETE http://localhost:5057/games/13
