@@ -9,7 +9,7 @@ namespace GameStore.Api.Endpoints;
 public static class GameEndpoints
 {
     const string GetGameEndPointName = "GetGame";
-    private static readonly List<GameDto> games =
+    private static readonly List<GameSummaryDto> games =
     [
         new(1, "Super Mario Bros", "Platform", 59.99m, new DateOnly(1985, 9, 13)),
         new(2, "The Legend of Zelda", "Action-Adventure", 49.99m, new DateOnly(1986, 2, 21)),
@@ -27,9 +27,9 @@ public static class GameEndpoints
         group
             .MapGet(
                 "/{id}",
-                (int id) =>
+                (int id, GameStoreContext dbContext) =>
                 {
-                    GameDto? game = games.Find(g => g.Id == id);
+                    Game? game = dbContext.Games.Find(id);
 
                     return game is not null ? Results.Ok(game) : Results.NotFound();
                 }
@@ -50,7 +50,7 @@ public static class GameEndpoints
                 return Results.CreatedAtRoute(
                     GetGameEndPointName,
                     new { id = game.Id },
-                    game.ToDto()
+                    game.ToGameDetailsDto()
                 );
             }
         );
@@ -67,7 +67,7 @@ public static class GameEndpoints
                     return Results.NotFound();
                 }
 
-                games[index] = new GameDto(
+                games[index] = new GameSummaryDto(
                     id,
                     updatedGame.Name,
                     updatedGame.Genre,
