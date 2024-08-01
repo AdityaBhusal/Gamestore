@@ -22,7 +22,14 @@ public static class GameEndpoints
         var group = app.MapGroup("games").WithParameterValidation();
 
         //GET /games
-        group.MapGet("", () => games);
+        group.MapGet(
+            "",
+            (GameStoreContext dbContext) =>
+                dbContext
+                    .Games.Include(game => game.Genre)
+                    .Select(game => game.ToGameSummaryDto())
+                    .AsNoTracking()
+        );
 
         //Get /games/{id}
         group
@@ -68,11 +75,9 @@ public static class GameEndpoints
                 {
                     return Results.NotFound();
                 }
-                    
-                dbContext.Entry(existingGame)
-                    .CurrentValues
-                    .SetValues(updatedGame.ToEntity(id));
-                    
+
+                dbContext.Entry(existingGame).CurrentValues.SetValues(updatedGame.ToEntity(id));
+
                 dbContext.SaveChanges();
 
                 return Results.NoContent();
