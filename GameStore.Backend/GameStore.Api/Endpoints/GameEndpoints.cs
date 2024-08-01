@@ -3,6 +3,7 @@ using GameStore.Api.Data;
 using GameStore.Api.Dtos;
 using GameStore.Api.Entities;
 using GameStore.Api.Mapping;
+using Microsoft.EntityFrameworkCore;
 
 namespace GameStore.Api.Endpoints;
 
@@ -31,7 +32,9 @@ public static class GameEndpoints
                 {
                     Game? game = dbContext.Games.Find(id);
 
-                    return game is not null ? Results.Ok(game.ToGameDetailsDto()) : Results.NotFound();
+                    return game is not null
+                        ? Results.Ok(game.ToGameDetailsDto())
+                        : Results.NotFound();
                 }
             )
             .WithName(GetGameEndPointName);
@@ -58,22 +61,19 @@ public static class GameEndpoints
         //put /games/{id}
         group.MapPut(
             "/{id}",
-            (int id, UpdateGameDto updatedGame) =>
+            (int id, UpdateGameDto updatedGame, GameStoreContext dbContext) =>
             {
-                var index = games.FindIndex(game => game.Id == id);
-
-                if (index == -1)
+                var existingGame = dbContext.Games.Find(id);
+                if (existingGame is null)
                 {
                     return Results.NotFound();
                 }
-
-                games[index] = new GameSummaryDto(
-                    id,
-                    updatedGame.Name,
-                    updatedGame.Genre,
-                    updatedGame.Price,
-                    updatedGame.ReleaseDate
-                );
+                    
+                dbContext.Entry(existingGame)
+                    .CurrentValues
+                    .SetValues(updatedGame.ToEntity(id));
+                    
+                dbContext.SaveChanges();
 
                 return Results.NoContent();
             }

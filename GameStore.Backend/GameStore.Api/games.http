@@ -1,4 +1,5 @@
-GET http://localhost:5057/games/29
+GET http://localhost:5057/games/
+
 
 
 
@@ -15,14 +16,10 @@ Content-Type: application/json
 
 
 ###
-PUT http://localhost:5057/games/6
+PUT http://localhost:5057/games/8
 Content-Type: application/json
 
 {
-    "name": "GTA 6",
-    "genre": "Action",
-    "price": 80,
-    "releaseDate": "2022-12-31"
 }
 
 
