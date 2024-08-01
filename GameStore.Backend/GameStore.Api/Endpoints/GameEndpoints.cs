@@ -87,10 +87,9 @@ public static class GameEndpoints
         //delete /game/{id}
         group.MapDelete(
             "/{id}",
-            (int id) =>
+            (int id, GameStoreContext dbContext) =>
             {
-                var game = games.RemoveAll(g => g.Id == id);
-
+                dbContext.Games.Where(game => game.Id = i = d).ExecuteDelete();
                 //If the game was deleted, return 204 No Content
                 //If the game was not found, return 404 Not Found
                 return game > 0 ? Results.NoContent() : Results.NotFound();
