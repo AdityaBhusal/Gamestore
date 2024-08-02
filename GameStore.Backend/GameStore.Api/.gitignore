@@ -1,0 +1,34 @@
+# Ignore build output
+bin/
+obj/
+
+# Ignore NuGet packages
+*.nuget.props
+*.nuget.targets
+packages/
+
+# Ignore user-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Ignore Visual Studio files
+.vs/
+*.vscode/
+
+# Ignore Resharper files
+_ReSharper*/
+*.resharper*
+*.DotSettings.user
+
+# Ignore logs and other generated files
+*.log
+*.log.*
+*.bak
+*.cache
+*.tmp
+*.temp
+*.swp
+*.DS_Store
+Thumbs.db
