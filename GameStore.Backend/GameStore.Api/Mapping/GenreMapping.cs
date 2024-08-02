@@ -9,3 +9,4 @@ public static class GenreMapping
         return new GenreDto(genre.Id, genre.Name);
     }
 }
+        
