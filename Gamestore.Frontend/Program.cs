@@ -2,14 +2,15 @@ using Gamestore.Frontend.Clients;
 using Gamestore.Frontend.Components;
 
 var builder = WebApplication.CreateBuilder(args);
+
 // comment
 // Add services to the container.
-builder.Services.AddRazorComponents().
-            AddInteractiveServerComponents();
+builder.Services.AddRazorComponents().AddInteractiveServerComponents();
 builder.Services.AddSingleton<GamesClient>();
 builder.Services.AddSingleton<GenresClient>();
 
 var app = builder.Build();
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
@@ -23,7 +24,6 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseAntiforgery();
 
-app.MapRazorComponents<App>()
-    .AddInteractiveServerRenderMode();
+app.MapRazorComponents<App>().AddInteractiveServerRenderMode();
 
 app.Run();

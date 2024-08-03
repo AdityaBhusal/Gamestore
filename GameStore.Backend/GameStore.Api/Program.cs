@@ -10,8 +10,12 @@ builder.Services.AddSqlite<GameStoreContext>(connString);
 //this is the default lifetime of a service
 
 var app = builder.Build();
+
+
 app.MapGamesEndpoints();
 app.MapGenresEndpoints();
+
+
 await app.MigrateDbAsync();
 
 app.Run();
