@@ -6,6 +6,9 @@ var builder = WebApplication.CreateBuilder(args);
 // comment
 // Add services to the container.
 builder.Services.AddRazorComponents().AddInteractiveServerComponents();
+
+var gameStoreApiUrl = "http://localhost:5057";
+
 builder.Services.AddSingleton<GamesClient>();
 builder.Services.AddSingleton<GenresClient>();
 
