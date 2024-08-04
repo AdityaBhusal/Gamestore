@@ -9,6 +9,13 @@ builder.Services.AddRazorComponents().AddInteractiveServerComponents();
 
 var gameStoreApiUrl = "http://localhost:5057";
 
+// Add http client
+// Register the GamesClient with the DI container
+// so that it can be injected into components
+builder.Services.AddHttpClient<GamesClient>(client =>
+    client.BaseAddress = new Uri(gameStoreApiUrl)
+);
+
 builder.Services.AddSingleton<GamesClient>();
 builder.Services.AddSingleton<GenresClient>();
 
