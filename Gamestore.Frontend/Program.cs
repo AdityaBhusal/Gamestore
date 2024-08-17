@@ -7,7 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents().
             AddInteractiveServerComponents();
 
-var gameStoreApiUrl = "http://localhost:5057";
+var gameStoreApiUrl = builder.Configuration["GameStoreApiUrl"] ??
+    throw new Exception("GameStoreApiUrl is required in appsettings.json or is not set to a valid URL.");
 
 builder.Services.AddHttpClient<GamesClient>(
     client => client.BaseAddress = new Uri(gameStoreApiUrl));
