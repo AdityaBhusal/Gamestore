@@ -2,7 +2,7 @@
 
 namespace Gamestore.Frontend.Clients;
 
-public class GenresClient()
+public class GenresClient(HttpClient httpClient)
 {
     private readonly Genre[] genres=[
         new(){
