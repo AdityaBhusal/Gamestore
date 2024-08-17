@@ -2,9 +2,9 @@ using Gamestore.Frontend.Clients;
 using Gamestore.Frontend.Components;
 
 var builder = WebApplication.CreateBuilder(args);
-
 // comment
 // Add services to the container.
+<<<<<<< HEAD
 builder.Services.AddRazorComponents().AddInteractiveServerComponents();
 
 var gameStoreApiUrl = "http://localhost:5057";
@@ -20,11 +20,14 @@ builder.Services.AddHttpClient<GenresClient>(client =>
     client.BaseAddress = new Uri(gameStoreApiUrl)
 );
 
+=======
+builder.Services.AddRazorComponents().
+            AddInteractiveServerComponents();
+>>>>>>> parent of f8ab8e5 (refactor: Update API endpoints and mappings for genre-related functionality)
 builder.Services.AddSingleton<GamesClient>();
 builder.Services.AddSingleton<GenresClient>();
 
 var app = builder.Build();
-
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
@@ -38,6 +41,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseAntiforgery();
 
-app.MapRazorComponents<App>().AddInteractiveServerRenderMode();
+app.MapRazorComponents<App>()
+    .AddInteractiveServerRenderMode();
 
 app.Run();
