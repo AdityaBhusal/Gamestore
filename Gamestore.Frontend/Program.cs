@@ -4,26 +4,8 @@ using Gamestore.Frontend.Components;
 var builder = WebApplication.CreateBuilder(args);
 // comment
 // Add services to the container.
-<<<<<<< HEAD
-builder.Services.AddRazorComponents().AddInteractiveServerComponents();
-
-var gameStoreApiUrl = "http://localhost:5057";
-
-// Add http client
-// Register the GamesClient with the DI container
-// so that it can be injected into components
-builder.Services.AddHttpClient<GamesClient>(client =>
-    client.BaseAddress = new Uri(gameStoreApiUrl)
-);
-
-builder.Services.AddHttpClient<GenresClient>(client =>
-    client.BaseAddress = new Uri(gameStoreApiUrl)
-);
-
-=======
 builder.Services.AddRazorComponents().
             AddInteractiveServerComponents();
->>>>>>> parent of f8ab8e5 (refactor: Update API endpoints and mappings for genre-related functionality)
 builder.Services.AddSingleton<GamesClient>();
 builder.Services.AddSingleton<GenresClient>();
 
