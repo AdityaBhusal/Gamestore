@@ -4,7 +4,7 @@ using Gamestore.Frontend.Models;
 
 namespace Gamestore.Frontend.Clients;
 
-public class GamesClient(HttpClient httpClient)
+public class GamesClient()
 {
  private readonly List<GameSummary> games=
  [
@@ -53,7 +53,7 @@ public class GamesClient(HttpClient httpClient)
      }
     ];
 
-    private readonly Genre[] genres = new GenresClient(httpClient).getGenres();
+    private readonly Genre[] genres = new GenresClient().getGenres();
     public GameSummary[] GetGames()=> [.. games];
     public void AddGame(GameDetails game)
     {
