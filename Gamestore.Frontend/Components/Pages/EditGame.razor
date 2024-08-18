@@ -28,7 +28,12 @@ This allows you to edit the game's name.
     <p>Loading.....</p>
 }
 else{
-    <EditForm model="@game" FormName="editGame" OnValidSubmit="HandleSubmitAsync">
+    <EditForm 
+    model="@game" 
+    FormName="editGame" 
+    OnValidSubmit="HandleSubmitAsync"
+    Enhance>
+    
     <DataAnnotationsValidator />
     <ValidationSummary />
     <div class="row">
