@@ -98,8 +98,8 @@ protected override async Task OnParametersSetAsync(){
         title="Add Game";
     }
 }
- protected override void OnInitialized(){
-    genres=GenresClient.getGenres();
+ protected override async Task OnInitializedAsync(){
+    genres = await GenresClient.GetGenresAsync();
  }
     private async Task HandleSubmitAsync(){
         /*
