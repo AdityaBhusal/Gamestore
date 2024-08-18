@@ -28,7 +28,7 @@ This allows you to edit the game's name.
     <p>Loading.....</p>
 }
 else{
-    <EditForm model="@game" FormName="editGame" OnValidSubmit="HandleSubmit">
+    <EditForm model="@game" FormName="editGame" OnValidSubmit="HandleSubmitAsync">
     <DataAnnotationsValidator />
     <ValidationSummary />
     <div class="row">
@@ -82,11 +82,12 @@ else{
 
  private Genre[]? genres;
  private string title=string.Empty;
-protected override void OnParametersSet(){
+protected override async Task OnParametersSetAsync(){
     if (game is not null)
     return;
+
     if(Id is  not null){
-        game=GamesClient.GetGamesByInt(Id.Value);
+        game= await GamesClient.GetGameAsync(Id.Value);
         title=$"Edit: {game.Name}";
     }
     else{
@@ -100,19 +101,19 @@ protected override void OnParametersSet(){
  protected override void OnInitialized(){
     genres=GenresClient.getGenres();
  }
-    private void HandleSubmit(){
+    private async Task HandleSubmitAsync(){
         /*
         HandleSubmit is a method that is called when the form is submitted.
         */
         ArgumentNullException.ThrowIfNull(game);
 
         if(Id is null){
-        GamesClient.AddGame(game);
+        await GamesClient.AddGameAsync(game);
 
         }
         else{
             game.Id=Id.Value;
-            GamesClient.UpdateGame(game);
+            await GamesClient.UpdateGameAsync(game);
         }
         NavigationManager.NavigateTo("/");
         }
