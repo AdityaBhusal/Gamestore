@@ -98,9 +98,9 @@ else
         - This allows you to represent the absence of games.
 */
 
-   protected override void  OnInitialized()
+   protected override async Task OnInitializedAsync()
    {
-        games=Client.GetGames();
+        games= await Client.GetGamesAsync();
     /*
     OnInitialized is a lifecycle method in Blazor.
     It's called when a component is being initialized.
