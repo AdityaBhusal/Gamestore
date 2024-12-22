@@ -32,7 +32,13 @@
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
+        }
+      },
+      "GameStore.Api": {
+        "commandName": "Project",
+    "environmentVariables": {
+      "ASPNETCORE_ENVIRONMENT": "Development"
+        }
       }
     }
-  }
 }
