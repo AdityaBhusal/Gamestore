@@ -16,16 +16,18 @@ public static class GameEndpoints
         var group = app.MapGroup("games").WithParameterValidation();
 
         //GET /games
-        group.MapGet(
+        _ = group.MapGet(
             "",
-            async (GameStoreContext dbContext) =>{
+            async (GameStoreContext dbContext) =>
+            {
                 // await Task.Delay(3000);
                 return await dbContext
                     .Games.Include(game => game.Genre)
                     .Select(game => game.ToGameSummaryDto())
                     .AsNoTracking()
                     .ToListAsync();
-            });
+            }
+        );
 
         //Get /games/{id}
         group
